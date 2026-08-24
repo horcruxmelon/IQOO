@@ -48,6 +48,34 @@ export const MOCK_ROOM_PHOTOS = [
     ocrText: "Sunset Point Cafe"
   },
   {
+    id: "r3b",
+    url: "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&auto=format&fit=crop&q=80",
+    contributor: "Priya (iQOO Neo9)",
+    timestamp: "24 mins ago",
+    containsUser: false,
+    userMatchConfidence: 6.0,
+    tags: ["Beach", "Goa"],
+    blurScore: 455,
+    isBlurry: false,
+    isDuplicate: false,
+    location: "Goa Beach",
+    ocrText: ""
+  },
+  {
+    id: "r3c",
+    url: "https://images.unsplash.com/photo-1471922694854-ff1b63b20054?w=800&auto=format&fit=crop&q=80",
+    contributor: "Rohan (You)",
+    timestamp: "26 mins ago",
+    containsUser: true,
+    userMatchConfidence: 97.2,
+    tags: ["Beach", "Goa", "You"],
+    blurScore: 470,
+    isBlurry: false,
+    isDuplicate: false,
+    location: "Goa Beach",
+    ocrText: "Anjuna Beach Shack"
+  },
+  {
     id: "r4",
     url: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop&q=80",
     contributor: "Vikram (iQOO 11)",
@@ -159,6 +187,32 @@ export const MOCK_STYLE_PRESETS = [
     name: "Watercolor Blossom",
     desc: "Soft bleeding water pigment edges",
     filterCss: "blur(0.4px) contrast(110%) saturate(150%) brightness(115%)"
+  }
+];
+
+export const MOCK_GALLERY_SECTIONS = [
+  {
+    month: "August 2026",
+    items: [
+      { id: "g1", url: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=600&auto=format&fit=crop&q=80", timestamp: "Aug 21, 2026", location: "Cafe Noir, Bangalore" },
+      { id: "g2", url: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=600&auto=format&fit=crop&q=80", timestamp: "Aug 20, 2026", location: "Solang Valley, HP" },
+      { id: "g3", url: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&auto=format&fit=crop&q=80", timestamp: "Aug 19, 2026", location: "Solang Valley, HP" },
+      { id: "g4", url: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=900&auto=format&fit=crop&q=80", timestamp: "Aug 18, 2026", location: "Solang Valley, HP", featured: true },
+      { id: "g5", url: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600&auto=format&fit=crop&q=80", timestamp: "Aug 17, 2026", location: "Coorg Estate" },
+      { id: "g6", url: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&auto=format&fit=crop&q=80", timestamp: "Aug 16, 2026", location: "Western Ghats" },
+      { id: "g7", url: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&auto=format&fit=crop&q=80", timestamp: "Aug 15, 2026", location: "Coorg Estate" },
+      { id: "g8", url: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&auto=format&fit=crop&q=80", timestamp: "Aug 14, 2026", location: "Pub Street" },
+      { id: "g9", url: "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?w=600&auto=format&fit=crop&q=80", timestamp: "Aug 12, 2026", location: "Western Ghats" },
+    ]
+  },
+  {
+    month: "September 2026",
+    items: [
+      { id: "g10", url: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&auto=format&fit=crop&q=80", timestamp: "Sep 3, 2026", location: "Cafe Noir, Bangalore" },
+      { id: "g11", url: "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=600&auto=format&fit=crop&q=80", timestamp: "Sep 2, 2026", location: "Nandi Hills" },
+      { id: "g12", url: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&auto=format&fit=crop&q=80", timestamp: "Sep 1, 2026", location: "Goa Beach" },
+      { id: "g13", url: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600&auto=format&fit=crop&q=80", timestamp: "Aug 31, 2026", location: "Nandi Hills" },
+    ]
   }
 ];
 

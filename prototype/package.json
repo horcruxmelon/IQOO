@@ -1,5 +1,5 @@
 {
-  "name": "privasync-iqoo-prototype",
+  "name": "reliq-iqoo-prototype",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -9,10 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "canvas-confetti": "^1.9.2",
     "lucide-react": "^0.344.0",
-    "canvas-confetti": "^1.9.2"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

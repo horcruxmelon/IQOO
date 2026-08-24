@@ -94,10 +94,7 @@ export default function MemoriesView() {
     <div className="flex-1 flex flex-col overflow-y-auto px-4 py-3 space-y-4 text-white">
       <div className="flex items-center gap-2 border-b border-neutral-800 pb-2.5">
         <Sparkles className="w-4 h-4 text-iqoo-yellow fill-iqoo-yellow" />
-        <div>
-          <h2 className="text-sm font-bold">Smart Memories</h2>
-          <p className="text-[10px] text-neutral-400">Auto-curated from your photo timeline</p>
-        </div>
+        <h2 className="text-sm font-bold">Memories</h2>
       </div>
 
       <div className="space-y-3">

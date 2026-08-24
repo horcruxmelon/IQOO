@@ -14,7 +14,7 @@ export default function PhotoViewerModal({ photo, onClose, onGoToStyle }) {
         {photo.containsUser && (
           <div className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-iqoo-yellow text-black text-[10px] font-extrabold">
             <Sparkles className="w-3 h-3 fill-black" />
-            <span>{photo.userMatchConfidence}% FaceNet Match — YOU</span>
+            <span>Matched — YOU</span>
           </div>
         )}
         <div className="w-8" />
@@ -36,7 +36,7 @@ export default function PhotoViewerModal({ photo, onClose, onGoToStyle }) {
             <MapPin className="w-3 h-3 text-iqoo-yellow" /> {photo.location}
           </p>
           <p className="text-[11px] text-neutral-400 flex items-center gap-1.5 mt-0.5">
-            <Clock className="w-3 h-3" /> {photo.timestamp} | By {photo.contributor}
+            <Clock className="w-3 h-3" /> {photo.timestamp}{photo.contributor ? ` | By ${photo.contributor}` : ''}
           </p>
         </div>
 

@@ -28,12 +28,7 @@ export default function VaultNotesView({ vaultItems, onOpenOfficeKit }) {
           <Lock className="w-8 h-8 text-iqoo-yellow" />
         </div>
 
-        <div>
-          <h2 className="text-base font-bold text-white">Encrypted Biometric Vault</h2>
-          <p className="text-xs text-neutral-400 mt-1 max-w-[260px]">
-            Protected with <strong>AES-256 Android Keystore</strong>. Contains auto-detected Aadhaar, PAN cards & credentials.
-          </p>
-        </div>
+        <h2 className="text-base font-bold text-white">Vault</h2>
 
         <button
           onClick={handleFingerprintAuth}
@@ -47,7 +42,7 @@ export default function VaultNotesView({ vaultItems, onOpenOfficeKit }) {
         </button>
 
         <p className="text-[11px] text-neutral-500 font-mono">
-          {isAuthenticating ? 'Verifying Biometric Fingerprint...' : 'Tap fingerprint sensor to unlock'}
+          {isAuthenticating ? 'Verifying...' : 'Tap to unlock'}
         </p>
       </div>
     );
@@ -59,9 +54,8 @@ export default function VaultNotesView({ vaultItems, onOpenOfficeKit }) {
         <div>
           <h2 className="text-sm font-bold flex items-center gap-1.5">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
-            <span>Secure Privacy Vault</span>
+            <span>Vault</span>
           </h2>
-          <p className="text-[10px] text-neutral-400">Zero-Cloud Hardware Encrypted</p>
         </div>
         <button 
           onClick={() => setIsUnlocked(false)}

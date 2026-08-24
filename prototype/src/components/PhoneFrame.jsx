@@ -7,14 +7,11 @@ export default function PhoneFrame({ children, onOpenOfficeKit, isMonsterMode, s
       <header className="w-full max-w-4xl mb-4 flex flex-wrap items-center justify-between gap-3 px-4 py-3 rounded-2xl bg-neutral-900/80 border border-neutral-800 backdrop-blur-md">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-xl bg-iqoo-yellow flex items-center justify-center text-black font-black text-lg tracking-tighter">
-            iQ
+            R
           </div>
-          <div>
-            <h1 className="text-sm sm:text-base font-bold tracking-tight text-white flex items-center gap-2">
-              PrivaSync AI <span className="text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-full bg-iqoo-yellow/10 text-iqoo-yellow border border-iqoo-yellow/30">iQOO 12 Edition</span>
-            </h1>
-            <p className="text-xs text-neutral-400">On-Device Zero-Cloud AI Gallery & Shared Instant Space</p>
-          </div>
+          <h1 className="text-sm sm:text-base font-bold tracking-tight text-white flex items-center gap-2">
+            Reliq <span className="text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-full bg-iqoo-yellow/10 text-iqoo-yellow border border-iqoo-yellow/30">iQOO 12 Edition</span>
+          </h1>
         </div>
 
         <div className="flex items-center gap-2">
@@ -27,7 +24,7 @@ export default function PhoneFrame({ children, onOpenOfficeKit, isMonsterMode, s
             }`}
           >
             <Zap className={`w-3.5 h-3.5 ${isMonsterMode ? 'fill-current animate-bounce' : ''}`} />
-            <span>Monster NPU: {isMonsterMode ? 'Active (120 FPS)' : 'Standard'}</span>
+            <span>Monster Mode: {isMonsterMode ? 'Active' : 'Standard'}</span>
           </button>
 
           <button 

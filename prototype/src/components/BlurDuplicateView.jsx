@@ -23,11 +23,8 @@ export default function BlurDuplicateView({ photos, onCleanAll, onBack }) {
           <span className="text-xs text-neutral-400">Total Flagged Items</span>
           <span className="text-xs font-bold text-amber-400">{blurryPhotos.length + duplicatePhotos.length} Photos</span>
         </div>
-        <p className="text-[11px] text-neutral-400">
-          Detected via <strong>OpenCV Laplacian Variance</strong> and <strong>Perceptual Hashmap</strong> matches.
-        </p>
 
-        <button 
+        <button
           onClick={onCleanAll}
           className="mt-3 w-full py-2 rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs font-bold flex items-center justify-center gap-1.5 transition shadow-lg shadow-red-600/20 active:scale-95"
         >
@@ -52,7 +49,7 @@ export default function BlurDuplicateView({ photos, onCleanAll, onBack }) {
               <div key={p.id} className="relative rounded-xl overflow-hidden border border-neutral-800 bg-neutral-900">
                 <img src={p.url} alt="Blurry" className="w-full h-28 object-cover opacity-75" />
                 <div className="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-red-500/90 text-[9px] font-bold text-white">
-                  Blur: {p.blurScore}
+                  Blurry
                 </div>
               </div>
             ))}
@@ -76,7 +73,7 @@ export default function BlurDuplicateView({ photos, onCleanAll, onBack }) {
               <div key={p.id} className="relative rounded-xl overflow-hidden border border-neutral-800 bg-neutral-900">
                 <img src={p.url} alt="Duplicate" className="w-full h-28 object-cover" />
                 <div className="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-amber-500/90 text-[9px] font-bold text-white">
-                  pHash Match (100%)
+                  Duplicate
                 </div>
               </div>
             ))}

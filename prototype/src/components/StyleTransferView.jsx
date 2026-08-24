@@ -24,16 +24,13 @@ export default function StyleTransferView({ isMonsterMode }) {
   return (
     <div className="flex-1 flex flex-col overflow-y-auto px-4 py-3 space-y-4 text-white">
       <div className="flex items-center justify-between border-b border-neutral-800 pb-2.5">
-        <div>
-          <h2 className="text-sm font-bold flex items-center gap-1.5">
-            <Palette className="w-4 h-4 text-iqoo-yellow" />
-            <span>Neural Style Studio</span>
-          </h2>
-          <p className="text-[10px] text-neutral-400">On-Device TFLite Arbitrary Style Transfer</p>
-        </div>
+        <h2 className="text-sm font-bold flex items-center gap-1.5">
+          <Palette className="w-4 h-4 text-iqoo-yellow" />
+          <span>Reimagine</span>
+        </h2>
         <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-neutral-900 border border-neutral-800 text-[10px] font-mono text-emerald-400">
           <Cpu className="w-3 h-3 text-iqoo-orange" />
-          <span>{isMonsterMode ? 'NPU: 38ms (Adreno 750)' : 'NPU: 92ms'}</span>
+          <span>On-Device</span>
         </div>
       </div>
 
@@ -51,7 +48,7 @@ export default function StyleTransferView({ isMonsterMode }) {
         {isProcessing && (
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 backdrop-blur-xs">
             <Wand2 className="w-8 h-8 text-iqoo-yellow animate-spin" />
-            <span className="text-xs font-bold text-white mt-2">Generating Art on Snapdragon NPU...</span>
+            <span className="text-xs font-bold text-white mt-2">Generating art on-device...</span>
           </div>
         )}
 
@@ -82,10 +79,7 @@ export default function StyleTransferView({ isMonsterMode }) {
       </div>
 
       <div className="space-y-2">
-        <div className="flex items-center justify-between">
-          <span className="text-xs font-bold uppercase tracking-wider text-neutral-300">Style Presets</span>
-          <span className="text-[10px] text-iqoo-yellow font-bold">100% Offline AI</span>
-        </div>
+        <span className="text-xs font-bold uppercase tracking-wider text-neutral-300">Style Presets</span>
 
         <div className="grid grid-cols-2 gap-2">
           {MOCK_STYLE_PRESETS.map((preset) => (

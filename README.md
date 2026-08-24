@@ -1,4 +1,4 @@
-﻿# PrivaSync AI — iQOO Smart Gallery
+﻿# Reliq — iQOO Smart Gallery
 
 > **Zero-Cloud, On-Device AI Gallery with Instant Collaborative Shared Spaces for iQOO (Funtouch OS / OriginOS)**
 
@@ -13,8 +13,8 @@ After trips, events, or parties with friends, sharing photos is broken:
 
 ---
 
-## 💡 The Solution: PrivaSync AI
-**PrivaSync AI** is an on-device AI gallery and instant collaborative photo space that eliminates cloud dependency:
+## 💡 The Solution: Reliq
+**Reliq** is an on-device AI gallery and instant collaborative photo space that eliminates cloud dependency:
 1. **Instant Group Rooms:** Friends join via a 6-digit room code or QR link and dump raw photos over zero-data local Wi-Fi / P2P.
 2. **"You're In This Too" (Killer Feature):** On-device face-embedding matching (FaceNet) automatically surfaces every photo of **YOU** right at the top of your feed — including candids taken by friends.
 3. **AI Sensitive Vault & Auto-Notes:** Automatically detects Indian IDs (Aadhaar, PAN, Passports), locks them with **AES-256 Android Keystore encryption + Biometric authentication**, and extracts credentials into a structured Notes file.
@@ -58,7 +58,7 @@ After trips, events, or parties with friends, sharing photos is broken:
 
 ## ⚡ iQOO Hardware & Ecosystem Integration
 
-| iQOO Hardware Capability | How PrivaSync AI Leverages It |
+| iQOO Hardware Capability | How Reliq Leverages It |
 | :--- | :--- |
 | **Snapdragon Adreno GPU / NPU** | Sub-40ms on-device Neural Style Transfer & FaceNet vector inference |
 | **120Hz Ultra-Smooth Display** | 4-way gesture navigation (Swipe Left/Right, Up to Save, Down to Delete) |

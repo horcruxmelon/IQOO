@@ -29,8 +29,8 @@ export default function OfficeKitPanel({ onClose }) {
             <Laptop className="w-5 h-5 text-white" />
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-            <span className="text-[11px] font-bold text-emerald-400">Connected via iQOO Link</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span className="text-[11px] font-bold text-emerald-400">Connected</span>
           </div>
         </div>
 
@@ -51,8 +51,6 @@ export default function OfficeKitPanel({ onClose }) {
             </button>
           ))}
         </div>
-
-        <p className="text-[10px] text-neutral-500 text-center">Powered by iQOO Wireless P2P Link Protocol</p>
       </div>
     </div>
   );

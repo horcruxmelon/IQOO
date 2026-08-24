@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, MapPin, Calendar, FileText, X, Sparkles, Fingerprint, ShieldCheck, Copy, Check } from 'lucide-react';
+import { Search, MapPin, Calendar, FileText, X, Sparkles, Lock, ChevronRight } from 'lucide-react';
 import { MOCK_ROOM_PHOTOS, MOCK_VAULT_ITEMS } from '../data/mockData';
 
 const SUGGESTIONS = [
@@ -15,14 +15,11 @@ const matchesQuery = (haystack, term) => {
   return words.some(w => hay.includes(w));
 };
 
-export default function AssistantSearchView({ onSelectPhoto }) {
+export default function AssistantSearchView({ onSelectPhoto, onGoToVault }) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [vaultResults, setVaultResults] = useState([]);
   const [hasSearched, setHasSearched] = useState(false);
-  const [unlockingId, setUnlockingId] = useState(null);
-  const [unlockedIds, setUnlockedIds] = useState(new Set());
-  const [copiedId, setCopiedId] = useState(null);
 
   const runSearch = (q) => {
     const term = q.trim();
@@ -49,22 +46,6 @@ export default function AssistantSearchView({ onSelectPhoto }) {
     setResults([]);
     setVaultResults([]);
     setHasSearched(false);
-    setUnlockingId(null);
-    setUnlockedIds(new Set());
-  };
-
-  const handleUnlock = (id) => {
-    setUnlockingId(id);
-    setTimeout(() => {
-      setUnlockingId(null);
-      setUnlockedIds(prev => new Set(prev).add(id));
-    }, 700);
-  };
-
-  const handleCopy = (text, id) => {
-    navigator.clipboard?.writeText(text);
-    setCopiedId(id);
-    setTimeout(() => setCopiedId(null), 2000);
   };
 
   const totalResults = results.length + vaultResults.length;
@@ -137,49 +118,22 @@ export default function AssistantSearchView({ onSelectPhoto }) {
             <>
               {vaultResults.length > 0 && (
                 <div className="space-y-2">
-                  {vaultResults.map(item => {
-                    const isUnlocked = unlockedIds.has(item.id);
-                    const isUnlocking = unlockingId === item.id;
-                    const secret = item.ocrData.password || item.ocrData.idNumber;
-                    return (
-                      <div key={item.id} className="p-3 rounded-2xl bg-neutral-900 border border-amber-500/30 space-y-2.5">
-                        <div className="flex items-center justify-between">
-                          <span className="flex items-center gap-1.5 text-[11px] font-bold text-amber-300">
-                            <ShieldCheck className="w-3.5 h-3.5" />
-                            <span>{item.title}</span>
-                          </span>
-                          <span className="text-[9px] text-neutral-500 font-mono">{item.encryptedHash}</span>
-                        </div>
-
-                        {!isUnlocked ? (
-                          <button
-                            onClick={() => handleUnlock(item.id)}
-                            disabled={isUnlocking}
-                            className="w-full py-2.5 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-center gap-2 text-xs font-semibold text-neutral-300 hover:border-iqoo-yellow/50 transition disabled:opacity-70"
-                          >
-                            <Fingerprint className={`w-4 h-4 text-iqoo-yellow ${isUnlocking ? 'animate-pulse' : ''}`} />
-                            <span>{isUnlocking ? 'Verifying fingerprint...' : 'Tap to authenticate & reveal'}</span>
-                          </button>
-                        ) : (
-                          <div className="p-2.5 rounded-xl bg-neutral-950 border border-neutral-800/80 flex items-center justify-between gap-2">
-                            <div className="min-w-0">
-                              {item.ocrData.ssid && (
-                                <p className="text-[10px] text-neutral-500 truncate">{item.ocrData.ssid}</p>
-                              )}
-                              <p className="text-[12px] font-mono font-bold text-iqoo-yellow truncate">{secret}</p>
-                            </div>
-                            <button
-                              onClick={() => handleCopy(secret, item.id)}
-                              className="shrink-0 px-2 py-1 rounded bg-black/70 hover:bg-black text-[10px] text-white flex items-center gap-1 border border-neutral-700"
-                            >
-                              {copiedId === item.id ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
-                              <span>{copiedId === item.id ? 'Copied' : 'Copy'}</span>
-                            </button>
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
+                  {vaultResults.map(item => (
+                    <button
+                      key={item.id}
+                      onClick={onGoToVault}
+                      className="w-full p-3 rounded-2xl bg-neutral-900 border border-amber-500/30 flex items-center justify-between gap-2 text-left hover:border-amber-500/50 transition"
+                    >
+                      <span className="flex items-center gap-2 min-w-0">
+                        <Lock className="w-3.5 h-3.5 text-amber-300 shrink-0" />
+                        <span className="text-[11px] font-bold text-amber-300 truncate">{item.title}</span>
+                      </span>
+                      <span className="shrink-0 flex items-center gap-1 text-[10px] font-semibold text-neutral-400">
+                        <span>Unlock in Vault</span>
+                        <ChevronRight className="w-3.5 h-3.5" />
+                      </span>
+                    </button>
+                  ))}
                 </div>
               )}
 

@@ -150,7 +150,7 @@ export default function App() {
         )}
 
         {activeTab === "search" && (
-          <AssistantSearchView onSelectPhoto={handleSelectPhoto} />
+          <AssistantSearchView onSelectPhoto={handleSelectPhoto} onGoToVault={() => goToFeature('vault')} />
         )}
 
         {selectedPhoto && (

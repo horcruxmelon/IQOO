@@ -3,9 +3,9 @@ import { Wifi, Battery, Zap, Laptop } from 'lucide-react';
 
 export default function PhoneFrame({ children, onOpenOfficeKit, isMonsterMode, setIsMonsterMode }) {
   return (
-    <div className="h-screen w-screen bg-neutral-950 flex flex-col items-center justify-center p-1 sm:p-3 text-white font-sans overflow-hidden">
-      {/* Compact Header Bar */}
-      <header className="w-full max-w-[420px] mb-2 flex items-center justify-between gap-2 px-3 py-1.5 rounded-xl bg-neutral-900/90 border border-neutral-800 backdrop-blur-md shrink-0">
+    <div className="h-screen w-screen bg-neutral-950 flex flex-col items-center justify-center p-0 sm:p-3 text-white font-sans overflow-hidden">
+      {/* Desktop Header Bar (Hidden on physical mobile devices) */}
+      <header className="hidden sm:flex w-full max-w-[390px] mb-2 items-center justify-between gap-2 px-3 py-1.5 rounded-xl bg-neutral-900/90 border border-neutral-800 backdrop-blur-md shrink-0">
         <div className="flex items-center gap-2">
           <div className="w-7 h-7 rounded-lg bg-iqoo-yellow flex items-center justify-center text-black font-black text-xs tracking-tighter">
             R
@@ -38,14 +38,17 @@ export default function PhoneFrame({ children, onOpenOfficeKit, isMonsterMode, s
         </div>
       </header>
 
-      {/* Realistic & Viewport-Fitted iQOO Phone Chassis */}
-      <div className="relative w-full max-w-[370px] h-[calc(100vh-65px)] max-h-[740px] bg-black rounded-[38px] border-[7px] border-neutral-800 shadow-[0_0_50px_rgba(0,0,0,0.9)] overflow-hidden flex flex-col ring-1 ring-white/10 shrink-0">
-        <div className="absolute top-1.5 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center">
+      {/* Universal Adaptive Chassis: Edge-to-Edge on Mobile, Styled Frame on Desktop */}
+      <div className="relative w-full sm:max-w-[370px] h-full sm:h-[calc(100vh-65px)] sm:max-h-[740px] bg-black sm:rounded-[38px] rounded-none sm:border-[7px] border-0 border-neutral-800 sm:shadow-[0_0_50px_rgba(0,0,0,0.9)] overflow-hidden flex flex-col sm:ring-1 sm:ring-white/10 shrink-0">
+        
+        {/* Punch Hole Camera (Visible on desktop mockup) */}
+        <div className="hidden sm:flex absolute top-1.5 left-1/2 -translate-x-1/2 z-50 items-center justify-center">
           <div className="w-3.5 h-3.5 rounded-full bg-black border border-neutral-800 flex items-center justify-center">
             <div className="w-1.5 h-1.5 rounded-full bg-neutral-900 ring-1 ring-blue-900/50"></div>
           </div>
         </div>
 
+        {/* Status Bar */}
         <div className="h-8 px-5 pt-1.5 flex items-center justify-between text-[10px] font-semibold text-neutral-300 z-40 bg-gradient-to-b from-black/80 to-transparent select-none shrink-0">
           <span>09:41</span>
           <div className="flex items-center gap-1.5 text-neutral-300">
@@ -59,10 +62,12 @@ export default function PhoneFrame({ children, onOpenOfficeKit, isMonsterMode, s
           </div>
         </div>
 
+        {/* Scrollable Screen Content */}
         <div className="flex-1 flex flex-col overflow-hidden bg-neutral-950 min-h-0">
           {children}
         </div>
 
+        {/* Bottom Gesture Bar */}
         <div className="h-4 bg-neutral-950 flex items-center justify-center z-40 shrink-0">
           <div className="w-28 h-1 rounded-full bg-neutral-600"></div>
         </div>

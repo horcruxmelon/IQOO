@@ -39,32 +39,46 @@ export default function SharedRoomView({ roomPhotos, onDumpPhotos, onSelectPhoto
   };
 
   return (
-    <div className="flex-1 flex flex-col overflow-y-auto px-4 py-3 space-y-4 text-white">
-      <div className="p-3.5 rounded-2xl bg-gradient-to-r from-neutral-900 via-neutral-900 to-neutral-800 border border-neutral-800 relative overflow-hidden">
-        <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-iqoo-yellow/10 rounded-full blur-xl pointer-events-none"></div>
-        <div className="flex items-center justify-between mb-2">
-          <h2 className="text-base font-bold text-white">Goa Weekend Trip 2026</h2>
-          <span className="text-xs font-mono font-bold bg-neutral-800/80 px-2 py-0.5 rounded text-iqoo-yellow border border-neutral-700">
-            {spaceCode}
+    <div className="flex-1 flex flex-col overflow-y-auto px-4 py-3 space-y-3 text-white">
+      {roomPhotos.length <= 5 ? (
+        /* Full card — shown before dump */
+        <div className="p-3.5 rounded-2xl bg-gradient-to-r from-neutral-900 via-neutral-900 to-neutral-800 border border-neutral-800 relative overflow-hidden">
+          <div className="absolute -right-6 -bottom-6 w-24 h-24 bg-iqoo-yellow/10 rounded-full blur-xl pointer-events-none"></div>
+          <div className="flex items-center justify-between mb-2">
+            <h2 className="text-base font-bold text-white">Goa Weekend Trip 2026</h2>
+            <span className="text-xs font-mono font-bold bg-neutral-800/80 px-2 py-0.5 rounded text-iqoo-yellow border border-neutral-700">
+              {spaceCode}
+            </span>
+          </div>
+
+          <p className="text-xs text-neutral-400 mt-0.5 flex items-center gap-1.5">
+            <Users className="w-3.5 h-3.5 text-neutral-400" />
+            <span>4 Friends Connected</span>
+          </p>
+
+          <div className="mt-3 flex gap-2">
+            <button
+              onClick={handleSimulateDump}
+              disabled={isScanning}
+              className="flex-1 py-2 px-3 rounded-xl bg-iqoo-yellow text-black font-bold text-xs flex items-center justify-center gap-1.5 hover:bg-yellow-400 transition shadow-md active:scale-95 disabled:opacity-50"
+            >
+              <UploadCloud className="w-4 h-4" />
+              <span>{isScanning ? 'Syncing...' : 'Dump 3 Friend Photos'}</span>
+            </button>
+          </div>
+        </div>
+      ) : (
+        /* Compact bar — shown after dump */
+        <div className="px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Users className="w-3.5 h-3.5 text-iqoo-yellow" />
+            <span className="text-xs font-bold text-white">Goa Weekend Trip 2026</span>
+          </div>
+          <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-neutral-800 text-iqoo-yellow border border-neutral-700">
+            {spaceCode} · 4 friends
           </span>
         </div>
-
-        <p className="text-xs text-neutral-400 mt-0.5 flex items-center gap-1.5">
-          <Users className="w-3.5 h-3.5 text-neutral-400" />
-          <span>4 Friends Connected</span>
-        </p>
-
-        <div className="mt-3 flex gap-2">
-          <button
-            onClick={handleSimulateDump}
-            disabled={isScanning}
-            className="flex-1 py-2 px-3 rounded-xl bg-iqoo-yellow text-black font-bold text-xs flex items-center justify-center gap-1.5 hover:bg-yellow-400 transition shadow-md active:scale-95 disabled:opacity-50"
-          >
-            <UploadCloud className="w-4 h-4" />
-            <span>{isScanning ? 'Syncing...' : 'Dump 3 Friend Photos'}</span>
-          </button>
-        </div>
-      </div>
+      )}
 
       {blurAndDupsCount > 0 && (
         <div 

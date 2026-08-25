@@ -3,9 +3,9 @@ import { Wifi, Battery, Zap, Laptop } from 'lucide-react';
 
 export default function PhoneFrame({ children, onOpenOfficeKit, isMonsterMode, setIsMonsterMode }) {
   return (
-    <div className="h-screen w-screen bg-neutral-950 flex flex-col items-center justify-center p-0 sm:px-3 sm:pb-3 sm:pt-12 text-white font-sans overflow-hidden">
+    <div className="h-screen w-screen bg-neutral-950 flex flex-col items-center justify-center p-0 sm:px-4 sm:pb-4 sm:pt-16 text-white font-sans overflow-hidden">
       {/* Desktop Header Bar (Hidden on physical mobile devices) */}
-      <header className="hidden sm:flex w-full max-w-[370px] mb-2 items-center justify-between gap-2 px-3 py-1.5 rounded-xl bg-neutral-900/90 border border-neutral-800 backdrop-blur-md shrink-0">
+      <header className="hidden sm:flex w-full max-w-[360px] mb-2 items-center justify-between gap-2 px-3 py-1.5 rounded-xl bg-neutral-900/90 border border-neutral-800 backdrop-blur-md shrink-0">
         <div className="flex items-center gap-2">
           <div className="w-7 h-7 rounded-lg bg-iqoo-yellow flex items-center justify-center text-black font-black text-xs tracking-tighter">
             R
@@ -39,7 +39,7 @@ export default function PhoneFrame({ children, onOpenOfficeKit, isMonsterMode, s
       </header>
 
       {/* Universal Adaptive Chassis: Edge-to-Edge on Mobile, Styled Frame on Desktop */}
-      <div className="relative w-full sm:max-w-[370px] h-full sm:h-[calc(100vh-105px)] sm:max-h-[700px] bg-black sm:rounded-[38px] rounded-none sm:border-[7px] border-0 border-neutral-800 sm:shadow-[0_0_50px_rgba(0,0,0,0.9)] overflow-hidden flex flex-col sm:ring-1 sm:ring-white/10 shrink-0">
+      <div className="relative w-full sm:max-w-[360px] h-full sm:h-[calc(100vh-120px)] sm:max-h-[640px] bg-black sm:rounded-[36px] rounded-none sm:border-[6px] border-0 border-neutral-800 sm:shadow-[0_0_50px_rgba(0,0,0,0.9)] overflow-hidden flex flex-col sm:ring-1 sm:ring-white/10 shrink-0">
         
         {/* Punch Hole Camera (Visible on desktop mockup) */}
         <div className="hidden sm:flex absolute top-1.5 left-1/2 -translate-x-1/2 z-50 items-center justify-center">
